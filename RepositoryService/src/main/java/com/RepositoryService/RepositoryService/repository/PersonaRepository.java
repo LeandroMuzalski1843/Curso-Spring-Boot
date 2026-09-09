@@ -1,0 +1,8 @@
+package com.RepositoryService.RepositoryService.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class PersonaRepository {
+    //Metodos para llamar a la base de datos, etc
+}
