@@ -22,4 +22,6 @@ public interface IPersonaService {
                             String nuevoNombre,
                             String nuevoApellido,
                             int nuevaEdad);
+
+    void editPersona(Persona per);
 }

@@ -56,5 +56,11 @@ public class PersonaController {
         return interPersona.findPersona(id_original);
     }
 
+    @PutMapping ("/personas/editar")
+    public Persona editPersona(@RequestBody Persona per){
+        interPersona.editPersona(per);
+        return interPersona.findPersona(per.getId());
+    }
+
 }
 
