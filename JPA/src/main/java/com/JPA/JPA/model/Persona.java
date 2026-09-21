@@ -2,6 +2,8 @@ package com.JPA.JPA.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Persona {
     @Id
@@ -11,21 +13,27 @@ public class Persona {
     private String apellido;
     private int edad;
 
+    /*codigo OneToOne
     //relacion uno a uno (mediante la asisciacion de un objeto de la clase que quiero asociar)
     @OneToOne
     //Unir columna (nombre de columna de esta tabla, la columna a la que hace referencia)
     @JoinColumn (name = "una_mascota_id_mascota", referencedColumnName = "id_mascota")
     private Mascota unaMascota;
+    */
+
+    //OneToMany
+    @OneToMany
+    private List<Mascota> listaMascotas;
 
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, int edad, Mascota unaMascota) {
+    public Persona(Long id, String nombre, String apellido, int edad, List<Mascota> listaMascotas) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.unaMascota = unaMascota;
+        this.listaMascotas = listaMascotas;
     }
 
     public Long getId() {
@@ -60,11 +68,11 @@ public class Persona {
         this.edad = edad;
     }
 
-    public Mascota getUnaMascota() {
-        return unaMascota;
+    public List<Mascota> getListaMascotas() {
+        return listaMascotas;
     }
 
-    public void setUnaMascota(Mascota unaMascota) {
-        this.unaMascota = unaMascota;
+    public void setListaMascotas(List<Mascota> listaMascotas) {
+        this.listaMascotas = listaMascotas;
     }
 }
